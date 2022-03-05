@@ -11,6 +11,8 @@ public class BuddyInfo {
     private String name;
     private String phoneNumber;
 
+    private final boolean DUMMY_VAR = true; // Test CircleCI and Heroku redeploy
+
     public BuddyInfo() {
         this.name = "";
         this.phoneNumber = "";
