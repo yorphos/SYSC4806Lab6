@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lab 4 - Root</title>
+    <link th:href="@{/styles/default.css}" rel="stylesheet" />
+</head>
+<div id="root-container" class="default-container">
+    <div id="root-title">
+        <h1>Select A Mode</h1>
+    </div>
+    <form id="traditional-mode" th:action="@{/traditional}" method="get">
+        <input type="submit" class="main-button" value="Traditional Mode">
+    </form>
+    <form id="spa-mode" th:action="@{/spa}" method="get">
+        <input type="submit" class="main-button" value="SPA Mode">
+    </form>
+</div>
+</html>

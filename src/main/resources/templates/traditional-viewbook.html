@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lab 4 - Traditional Mode</title>
+    <link th:href="@{/styles/default.css}" rel="stylesheet" />
+</head>
+<body>
+    <div id="traditional-container" class="default-container">
+        <div class="traditional-menu">
+            <form id="create-buddy" th:action="@{/addbuddy}" method="get">
+                <label for="create-buddy-name">Name: </label><input name="name" id="create-buddy-name">
+                <label for="create-buddy-phoneNumber">Phone Number: </label><input name="phoneNumber" id="create-buddy-phoneNumber">
+                <input class="hidden" type="hidden" name="bookId" th:value="${bookId}">
+                <input type="submit" class="main-button" value="Create Buddy">
+            </form>
+            <form id="back" th:action="@{/traditional}" method="get">
+                <input type="submit" class="main-button" value="Back to AddressBooks">
+            </form>
+        </div>
+        <div class="list">
+            <div class="buddy" th:each="buddy: ${buddies}">
+                <div class="buddy-info" th:text="${buddy.name}"></div>
+                <div class="buddy-info" th:text="${buddy.phoneNumber}"></div>
+                <form class="delete" th:id="${'delete-buddy-' + buddy.id}" th:action="@{/deletebuddy}" method="get">
+                    <input class="hidden" name="bookId" type="hidden" th:value="${bookId}">
+                    <input class="hidden" name="buddyId" type="hidden" th:value="${buddy.id}">
+                    <input class="delete" type="submit" value="DELETE">
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    let divs = document.getElementsByTagName("div");
+    console.log(divs);
+    for( let i = 0; i < divs.length; i++ ){
+        if( divs[i].className.indexOf("buddy-info") === -1 && divs[i].innerHTML.indexOf("<") === -1 ){
+            divs[i].style.display = "none";
+        }
+    }
+</script>
+</html>

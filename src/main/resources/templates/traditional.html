@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lab 4 - Traditional Mode</title>
+    <link th:href="@{/styles/default.css}" rel="stylesheet" />
+</head>
+<body>
+    <div id="traditional-container" class="default-container">
+        <div class="traditional-menu">
+            <form id="create-book" th:action="@{/createbook}" method="get">
+                <input type="submit" class="main-button" value="Create Book">
+            </form>
+            <form id="back" th:action="@{/}" method="get">
+                <input type="submit" class="main-button" value="Back to Modes">
+            </form>
+        </div>
+        <div class="list"><div class="book" th:each="addressBook: ${addressBooks}" th:with="bookid=${addressBook.id}">
+                <form th:id="${'view-book-' + bookid}" th:action="@{/viewbook}" method="get">
+                    <input class="hidden" type="hidden" name="bookId" th:value="${bookid}" >
+                    <input class="view-book" type="submit" th:value="${'AddressBook ' + bookid}">
+                </form>
+                <form class="delete" th:id="${'delete-book-' + bookid}" th:action="@{/deletebook}" method="get">
+                    <input class="hidden" name="bookId" type="hidden" th:value="${bookid}">
+                    <input class="delete" type="submit" value="DELETE">
+                </form></div>
+        </div>
+    </div>
+</body>
+<script>
+    let divs = document.getElementsByTagName("div");
+    console.log(divs);
+    for( let i = 0; i < divs.length; i++ ){
+        if( divs[i].innerHTML.indexOf("<") === -1 ){
+            divs[i].style.display = "none";
+        }
+    }
+</script>
+</html>

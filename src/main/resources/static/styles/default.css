@@ -1,0 +1,201 @@
+:root {
+    --btn-main: #52A573;
+    --btn-sub: #EFCC5B;
+    --main-back: #F5F5F5;
+    --list-main: #1B6774;
+}
+
+html,
+body,
+#root-container,
+#traditional-container,
+#spa-container {
+    height: 100%;
+    margin: 0;
+    background: var(--main-back);
+}
+
+#traditional-container > *,
+.traditional-menu > * {
+    margin: auto;
+}
+
+#root-container form {
+    grid-row: 2 / 4;
+    margin: 10% auto 0 auto;
+}
+
+#root-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    grid-column: 1 / 3;
+}
+
+
+#book-list:empty,
+#buddy-list:empty {
+    display:  none;
+}
+
+#create-buddy {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-auto-rows: 1fr;
+    grid-row-gap: 20%;
+}
+
+#create-buddy > *:last-child {
+    grid-column: 1 / 3;
+}
+
+#book-container,
+#buddy-container {
+    display: grid;
+    grid-auto-rows: min-content;
+    grid-row-gap: 10%;
+    margin-top: 5%;
+}
+
+#book-container > *,
+#buddy-container > * {
+    margin: auto;
+}
+
+#book-container .list {
+    max-height: 75vh;
+}
+
+#buddy-container .list {
+    max-height: 49.8vh;
+}
+
+.default-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-auto-rows: 1fr;
+}
+
+.list {
+    width: 70%;
+    overflow-y: auto;
+    display: block;
+    max-height: 75vh;
+    background: var(--btn-main);
+    margin: auto;
+    padding: 1%;
+}
+
+.list:empty {
+    display: none;
+}
+
+.list > div {
+    width: 100%;
+}
+
+.list > div > * {
+    height: 2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--list-main);
+}
+
+.list > div > div > * {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.list .buddy {
+    display: grid;
+    grid-template-columns: 2fr 2fr 1fr;
+    grid-template-rows: 1fr;
+    color: white;
+}
+
+.list .buddy .delete {
+    color: white;
+}
+
+.delete:hover {
+    cursor: pointer;
+    background: var(--btn-sub);
+    color: var(--btn-main)
+}
+
+.view-book:hover {
+    cursor: pointer;
+    background: var(--btn-sub);
+    color: var(--btn-main)
+}
+
+.list .book {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 1fr;
+    color: white;
+}
+
+.list .book > form > * {
+    color: white;
+}
+
+.list .book > form:hover {
+    cursor: pointer;
+    background: var(--btn-sub);
+}
+
+.list .book > form > *:hover {
+    color: var(--btn-main);
+}
+
+.list input {
+    background: none!important;
+    border: none;
+    padding: 0!important;
+    height: 100%;
+    width: 100%;
+}
+
+.hidden {
+    display: none;
+    width: 0;
+}
+
+#buddy-menu {
+    display: none;
+    grid-template-columns: 1fr 1fr;
+    grid-auto-rows: 1fr;
+    grid-row-gap: 20%;
+    margin-bottom: 5%;
+}
+
+#buddy-menu .main-button {
+    grid-column: 1 / 3;
+}
+
+.main-button {
+    background: var(--btn-main);
+    font-family: Arial, serif;
+    color: var(--btn-sub);
+    font-size: 20px;
+    padding: 10px 20px 10px 20px;
+    text-decoration: none;
+    border-width: 0;
+}
+
+.main-button:hover {
+    background: var(--btn-sub);
+    color: var(--btn-main);
+    cursor: pointer;
+}
+
+.traditional-menu {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-row-gap: 20%;
+}

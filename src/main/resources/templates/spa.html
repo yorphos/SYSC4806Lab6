@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lab 4 - SPA Mode</title>
+    <link th:href="@{/styles/default.css}" rel="stylesheet" />
+</head>
+<body>
+<div id="spa-container" class="default-container">
+    <div id="book-container">
+        <div id="book-menu">
+            <button class="main-button" id="get-books">Get AddressBooks</button>
+            <button class="main-button" id="create-book">Create AddressBook</button>
+            <button class="main-button" id="back">Back to Modes</button>
+        </div>
+        <div id="book-list" class="list"></div>
+    </div>
+    <div id="buddy-container">
+        <span id="buddy-list-title">No AddressBook Selected</span>
+        <div id="buddy-menu">
+            <input class="hidden" type="hidden" id="selected-book" value="">
+            <label for="add-buddy-name">Name: </label><input id="add-buddy-name" value="">
+            <label for="add-buddy-number">Phone Number: </label><input id="add-buddy-number" value="">
+            <button class="main-button" id="submit-add-buddy">Add Buddy</button>
+        </div>
+        <div id="buddy-list" class="list"></div>
+    </div>
+</div>
+</body>
+<script type="text/javascript" th:src="@{/js/spa.js}"></script>
+</html>
