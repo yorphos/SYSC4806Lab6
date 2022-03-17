@@ -1,4 +1,4 @@
-package com.kaueoliveira.sysc4806;
+package com.group13.sysc4806;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;

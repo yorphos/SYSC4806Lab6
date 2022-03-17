@@ -1,4 +1,4 @@
-package com.kaueoliveira.sysc4806;
+package com.group13.sysc4806;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
