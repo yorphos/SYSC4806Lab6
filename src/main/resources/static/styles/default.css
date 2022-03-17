@@ -14,6 +14,11 @@ body,
     margin: 0;
     background: var(--main-back);
 }
+#root-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 5fr;
+}
 
 #traditional-container > *,
 .traditional-menu > * {
@@ -22,6 +27,7 @@ body,
 
 #root-container form {
     grid-row: 2 / 4;
+    grid-column: 1 / 4;
     margin: 10% auto 0 auto;
 }
 
