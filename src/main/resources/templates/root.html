@@ -5,14 +5,14 @@
     <title>Lab 4 - Root</title>
     <link th:href="@{/styles/default.css}" rel="stylesheet" />
 </head>
-<div id="root-container" class="default-container">
+<div id="root-container">
     <div id="root-title">
-        <h1>Select A Mode</h1>
+        <h1>AddressBook Example</h1>
     </div>
-    <form id="traditional-mode" th:action="@{/traditional}" method="get">
+    <form th:if="${!isBeta}" id="traditional-mode" th:action="@{/traditional}" method="get">
         <input type="submit" class="main-button" value="Traditional Mode">
     </form>
-    <form id="spa-mode" th:action="@{/spa}" method="get">
+    <form th:if="${isBeta}" id="spa-mode" th:action="@{/spa}" method="get">
         <input type="submit" class="main-button" value="SPA Mode">
     </form>
 </div>

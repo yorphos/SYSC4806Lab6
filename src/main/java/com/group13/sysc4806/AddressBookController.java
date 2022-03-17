@@ -1,16 +1,21 @@
-package com.kaueoliveira.sysc4806;
+package com.group13.sysc4806;
 
+import org.ff4j.FF4j;
+import org.ff4j.core.Feature;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.annotation.PostConstruct;
 import java.util.List;
 
 @RestController
 @Service
 @RequestMapping("/")
 public class AddressBookController {
+
+    private static final String FEATURE_IS_BETA = "isBeta";
 
     private final AddressBookRepository repo;
 
@@ -19,10 +24,22 @@ public class AddressBookController {
         this.repo = repo;
     }
 
+    @Autowired
+    public FF4j ff4j;
+
+    @PostConstruct
+    public void populateFeatures() {
+        if (!ff4j.exist(FEATURE_IS_BETA)) {
+            ff4j.createFeature(new Feature(FEATURE_IS_BETA, false));
+        }
+    }
+
     @GetMapping("/")
     public ModelAndView root() {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("root");
+        modelAndView.addObject("isBeta", ff4j.check(FEATURE_IS_BETA));
+
         return modelAndView;
     }
 
